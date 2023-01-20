@@ -1,6 +1,7 @@
 ## Overview 
 
 TODO
+- translations & history 
 
 ## Stuff used
 

@@ -5,7 +5,7 @@ import {
 } from "@reduxjs/toolkit"
 import { apiAuthLogin, apiAuthLogout } from "../../api/apiAuth"
 import { Status } from "../../utils/status"
-import { statusError, statusLoading } from "../util/sliceUtil"
+import { statusError, statusLoading } from "../util/statusUtil"
 
 const authAdapter = createEntityAdapter()
 
@@ -43,3 +43,4 @@ const authSlice = createSlice({
 export default authSlice.reducer
 
 export const selectUser = (state) => state.auth.user
+export const selectStatus = (state) => state.auth.status

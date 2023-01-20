@@ -57,4 +57,5 @@ const extractTranslations = (state, action) => {
 
 export default translationSlice.reducer
 
-export const selectTranslations = (state) => state.entities
+export const selectTranslations = (state) => state.translation.entities
+export const selectStatus = (state) => state.translation.status

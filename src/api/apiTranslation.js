@@ -3,8 +3,9 @@ let translations = []
 export const apiTranslationSave = async (string) => {
   return await new Promise((resolve) => {
     setTimeout(() => {
-      translations.push(string)
-      resolve(translations)
+      const cp = [...translations]
+      cp.push(string)
+      resolve(cp)
     }, 200)
   })
 }

@@ -1,6 +1,10 @@
 import { useDispatch, useSelector } from "react-redux"
-import { authLogin, authLogout, selectUser } from "../state/auth/authSlice"
-import { selectStatus } from "../state/util/statusUtil"
+import {
+  authLogin,
+  authLogout,
+  selectStatus,
+  selectUser,
+} from "../state/auth/authSlice"
 import { Status } from "../utils/status"
 
 export const useAuth = () => {

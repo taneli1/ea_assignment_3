@@ -1,19 +1,21 @@
-import React, { useState } from "react"
+import React from "react"
 import { Input } from "../components/common/Input"
 import { PageNavBar } from "../components/page/PageNavBar"
 import { TranslationCard } from "../components/translation/TranslationCard"
+import { useTranslate } from "../hooks/useTranslate"
+import { useTranslationHistory } from "../hooks/useTranslationHistory"
 
 export const Translation = () => {
-  const [userinput, setUserinput] = useState("")
+  const { input, onInput, result, translate } = useTranslate()
 
   return (
     <>
       <PageNavBar />
       <Input
-        value={userinput}
-        onChange={setUserinput}
+        value={input}
+        onChange={onInput}
         placeholder="What to translate?"
-        onConfirm={() => {}}
+        onConfirm={() => translate()}
       />
 
       <TranslationCard />

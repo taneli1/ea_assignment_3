@@ -1,31 +1,25 @@
 import { useDispatch, useSelector } from "react-redux"
 import {
+  selectStatus,
   selectTranslations,
   translationClearHistory,
   translationGetHistory,
-  translationSave,
 } from "../state/translation/translationSlice"
-import { selectStatus } from "../state/util/statusUtil"
 import { Status } from "../utils/status"
 
-export const useTranslations = () => {
+export const useTranslationHistory = () => {
   const dispatch = useDispatch()
   const translations = useSelector(selectTranslations)
   const status = useSelector(selectStatus)
 
-  const fetchHistory = () => {
+  const fetch = () => {
     if (status === Status.loading) return
     dispatch(translationGetHistory)
   }
 
-  const translate = (string) => {
-    if (status === Status.loading) return
-    dispatch(translationSave(string))
-  }
-
-  const clearHistory = () => {
+  const clear = () => {
     dispatch(translationClearHistory)
   }
 
-  return { translations, status, translate, fetchHistory, clearHistory }
+  return { translations, status, fetch, clear }
 }
