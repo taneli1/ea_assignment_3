@@ -9,7 +9,7 @@ export const apiTranslationSave = async (string) => {
   })
 }
 
-export const apiTranslationHistory = async () => {
+export const apiTranslationGetHistory = async () => {
   return await new Promise((resolve) => {
     setTimeout(() => {
       resolve(translations)

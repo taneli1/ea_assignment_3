@@ -5,11 +5,11 @@ import {
 } from "@reduxjs/toolkit"
 import {
   apiTranslationClearHistory as apiClear,
-  apiTranslationHistory as apiHistory,
+  apiTranslationGetHistory as apiHistory,
   apiTranslationSave as apiSave,
 } from "../../api/apiTranslation"
 import { Status } from "../../utils/status"
-import { statusError, statusLoading } from "../util/sliceUtil"
+import { statusError, statusLoading } from "../util/statusUtil"
 
 const translationAdapter = createEntityAdapter()
 
@@ -18,9 +18,15 @@ const initialState = translationAdapter.getInitialState({
   entities: [],
 })
 
-const translationSave = createAsyncThunk("translation/save", apiSave)
-const translationHistory = createAsyncThunk("translation/history", apiHistory)
-const translationClearHistory = createAsyncThunk("translation/clear", apiClear)
+export const translationSave = createAsyncThunk("translation/save", apiSave)
+export const translationGetHistory = createAsyncThunk(
+  "translation/history",
+  apiHistory
+)
+export const translationClearHistory = createAsyncThunk(
+  "translation/clear",
+  apiClear
+)
 
 const translationSlice = createSlice({
   name: "translation",
@@ -33,9 +39,9 @@ const translationSlice = createSlice({
       .addCase(translationSave.fulfilled, extractTranslations)
 
     builder
-      .addCase(translationHistory.pending, statusLoading)
-      .addCase(translationHistory.rejected, statusError)
-      .addCase(translationHistory.fulfilled, extractTranslations)
+      .addCase(translationGetHistory.pending, statusLoading)
+      .addCase(translationGetHistory.rejected, statusError)
+      .addCase(translationGetHistory.fulfilled, extractTranslations)
 
     builder
       .addCase(translationClearHistory.pending, statusLoading)

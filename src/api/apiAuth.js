@@ -6,7 +6,7 @@ export const apiAuthLogin = async (username) => {
   })
 }
 
-export const apiAuthLogout = async (username) => {
+export const apiAuthLogout = async () => {
   return await new Promise((resolve) => {
     setTimeout(() => {
       resolve(null)
