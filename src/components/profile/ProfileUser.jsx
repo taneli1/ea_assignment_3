@@ -3,12 +3,12 @@ import PropTypes from "prop-types"
 import { UserCircleIcon } from "@heroicons/react/24/solid"
 
 const Props = {
-  username: PropTypes.string.isRequired,
+  user: PropTypes.object.isRequired,
   onClick: PropTypes.func,
   reversed: PropTypes.bool,
 }
 
-export const ProfileUser = ({ username, onClick, reversed = false }) => {
+export const ProfileUser = ({ user, onClick, reversed = false }) => {
   const interactionStyle = onClick
     ? "hover:opacity-80 hover:-translate-y-[1px] hover:translate-x-[1px] cursor-pointer"
     : ""
@@ -20,7 +20,7 @@ export const ProfileUser = ({ username, onClick, reversed = false }) => {
       } items-center `}
     >
       <p className="inline-block px-3 rounded-lg font-bot text-gray text-lg">
-        {username}
+        {user.username}
       </p>
       <UserCircleIcon
         onClick={onClick}

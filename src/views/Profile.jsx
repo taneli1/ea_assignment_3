@@ -5,16 +5,19 @@ import { CardLayout } from "../components/common/CardLayout"
 import { Center } from "../components/common/Center"
 import { PageNavBar } from "../components/page/PageNavBar"
 import { ProfileUser } from "../components/profile/ProfileUser"
+import { useAuth } from "../hooks/useAuth"
 
-export const Profile = (props) => {
+export const Profile = () => {
+  const { logout, user } = useAuth()
+
   return (
     <>
       <PageNavBar />
       <Center>
         <CardLayout>
           <section className="flex flex-row p-5 space-x-64 items-center">
-            <ProfileUser username="Placeholder" reversed />
-            <Button text="Logout" onClick={() => {}}>
+            <ProfileUser user={user} reversed />
+            <Button text="Logout" onClick={() => logout()}>
               <ArrowRightOnRectangleIcon className="h-5 w-5"></ArrowRightOnRectangleIcon>
             </Button>
           </section>

@@ -9,16 +9,22 @@ const authAdapter = createEntityAdapter()
 
 const initialState = authAdapter.getInitialState({
   status: Status.idle,
-  user: {
-    username: null,
-  },
+  user: null,
 })
 
 export const authLogin = createAsyncThunk("auth/login", async (username) => {
   return await new Promise((resolve) => {
     setTimeout(() => {
       resolve({ username: username })
-    }, 1000)
+    }, 200)
+  })
+})
+
+export const authLogout = createAsyncThunk("auth/logout", async (username) => {
+  return await new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(null)
+    }, 200)
   })
 })
 
@@ -28,19 +34,31 @@ const authSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(authLogin.pending, (state, action) => {
-        state.status = Status.loading
-      })
+      .addCase(authLogin.pending, setLoading)
+      .addCase(authLogin.rejected, setError)
       .addCase(authLogin.fulfilled, (state, action) => {
         state.status = Status.idle
         state.user = action.payload
       })
-      .addCase(authLogin.rejected, (state, action) => {
-        state.status = Status.error
+
+    builder
+      .addCase(authLogout.pending, setLoading)
+      .addCase(authLogout.rejected, setError)
+      .addCase(authLogout.fulfilled, (state, action) => {
+        state.status = Status.idle
+        state.user = null
       })
   },
 })
 
+const setLoading = (state) => {
+  state.status = Status.loading
+}
+const setError = (state) => {
+  state.status = Status.loading
+}
+
 export default authSlice.reducer
 
 export const selectUser = (state) => state.auth.user
+export const selectStatus = (state) => state.auth.status

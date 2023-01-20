@@ -9,7 +9,10 @@ const Props = {
 
 export const Button = ({ text, onClick, children }) => {
   return (
-    <button className="hover:opacity-70 flex text-primary py-3 px-3 align items-center rounded-lg drop-shadow bg-white">
+    <button
+      onClick={onClick}
+      className="hover:opacity-70 flex text-primary py-3 px-3 align items-center rounded-lg drop-shadow bg-white"
+    >
       <p className="mr-1 font-bold">{text}</p>
       {children}
     </button>
