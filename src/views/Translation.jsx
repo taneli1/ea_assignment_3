@@ -3,7 +3,7 @@ import { Input } from "../components/common/Input"
 import { PageNavBar } from "../components/page/PageNavBar"
 import { TranslationCard } from "../components/translation/TranslationCard"
 
-export const Translation = (props) => {
+export const Translation = () => {
   const [userinput, setUserinput] = useState("")
 
   return (
