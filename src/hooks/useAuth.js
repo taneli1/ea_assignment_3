@@ -7,9 +7,6 @@ import {
 } from "../state/auth/authSlice"
 import { Status } from "../utils/status"
 
-/**
- * Hook to use in components to access user and auth functions.
- */
 export const useAuth = () => {
   const dispatch = useDispatch()
   const status = useSelector(selectStatus)

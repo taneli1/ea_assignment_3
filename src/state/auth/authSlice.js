@@ -3,7 +3,9 @@ import {
   createAsyncThunk,
   createEntityAdapter,
 } from "@reduxjs/toolkit"
+import { apiAuthLogin, apiAuthLogout } from "../../api/apiAuth"
 import { Status } from "../../utils/status"
+import { statusError, statusLoading } from "../util/sliceUtil"
 
 const authAdapter = createEntityAdapter()
 
@@ -12,21 +14,8 @@ const initialState = authAdapter.getInitialState({
   user: null,
 })
 
-export const authLogin = createAsyncThunk("auth/login", async (username) => {
-  return await new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({ username: username })
-    }, 200)
-  })
-})
-
-export const authLogout = createAsyncThunk("auth/logout", async (username) => {
-  return await new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(null)
-    }, 200)
-  })
-})
+export const authLogin = createAsyncThunk("auth/login", apiAuthLogin)
+export const authLogout = createAsyncThunk("auth/logout", apiAuthLogout)
 
 const authSlice = createSlice({
   name: "auth",
@@ -34,29 +23,22 @@ const authSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(authLogin.pending, setLoading)
-      .addCase(authLogin.rejected, setError)
+      .addCase(authLogin.pending, statusLoading)
+      .addCase(authLogin.rejected, statusError)
       .addCase(authLogin.fulfilled, (state, action) => {
         state.status = Status.idle
         state.user = action.payload
       })
 
     builder
-      .addCase(authLogout.pending, setLoading)
-      .addCase(authLogout.rejected, setError)
+      .addCase(authLogout.pending, statusLoading)
+      .addCase(authLogout.rejected, statusError)
       .addCase(authLogout.fulfilled, (state, action) => {
         state.status = Status.idle
         state.user = null
       })
   },
 })
-
-const setLoading = (state) => {
-  state.status = Status.loading
-}
-const setError = (state) => {
-  state.status = Status.loading
-}
 
 export default authSlice.reducer
 
