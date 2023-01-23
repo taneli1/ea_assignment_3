@@ -9,7 +9,7 @@ const Props = {
   placeholder: PropTypes.string,
 }
 
-export const Input = ({ value, onChange, onConfirm, placeholder }) => {
+export const Input = ({ value, onChange, onConfirm, placeholder, ...rest }) => {
   const displayBtn = onConfirm && value !== ""
 
   const valueChanged = (e) => {

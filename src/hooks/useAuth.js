@@ -5,6 +5,7 @@ import {
   selectStatus,
   selectUser,
 } from "../state/auth/authSlice"
+import { translationClearHistory } from "../state/translation/translationSlice"
 import { Status } from "../utils/status"
 
 export const useAuth = () => {
@@ -19,6 +20,8 @@ export const useAuth = () => {
 
   const logout = () => {
     if (status === Status.loading) return
+
+    dispatch(translationClearHistory())
     dispatch(authLogout())
   }
 

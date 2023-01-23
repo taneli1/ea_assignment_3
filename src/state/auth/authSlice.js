@@ -4,6 +4,8 @@ import {
   createEntityAdapter,
 } from "@reduxjs/toolkit"
 import { apiAuthLogin, apiAuthLogout } from "../../api/apiAuth"
+import { cookieGet } from "../../storage/cookies"
+import { KEY_USER } from "../../utils/const"
 import { Status } from "../../utils/status"
 import { statusError, statusLoading } from "../util/statusUtil"
 
@@ -11,7 +13,10 @@ const authAdapter = createEntityAdapter()
 
 const initialState = authAdapter.getInitialState({
   status: Status.idle,
-  user: null,
+  user: (() => {
+    const user = cookieGet(KEY_USER)
+    return user ?? null
+  })(),
 })
 
 export const authLogin = createAsyncThunk("auth/login", apiAuthLogin)
