@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Status } from "../../utils/status"
+import BeatLoader from "react-spinners/BeatLoader"
 
 const Props = {
   status: PropTypes.oneOf([Status.idle, Status.loading, Status.error])
@@ -16,7 +17,7 @@ export const Loading = ({ status }) => {
     return <p>An error occured.</p>
   }
 
-  return <p>Loading...</p>
+  return <BeatLoader size={10} color="#1DBB84" />
 }
 
 Loading.propTypes = Props

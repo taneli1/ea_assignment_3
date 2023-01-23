@@ -7,9 +7,13 @@ export const useTranslate = () => {
   const [result, setResult] = useState(null)
 
   const translate = (string) => {
-    dispatch(translationSave(string))
-    setResult(string)
+    dispatch(translationSave(string.trim()))
+    setResult(string.trim())
   }
 
-  return { translate, result }
+  const reset = () => {
+    setResult(null)
+  }
+
+  return { translate, reset, result }
 }

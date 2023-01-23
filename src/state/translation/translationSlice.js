@@ -52,7 +52,7 @@ const translationSlice = createSlice({
 
 const extractTranslations = (state, action) => {
   state.status = Status.idle
-  state.entities = action.payload
+  state.entities = action.payload.reverse().slice(0, 10)
 }
 
 export default translationSlice.reducer

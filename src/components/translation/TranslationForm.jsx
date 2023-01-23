@@ -5,13 +5,26 @@ import { REGEX_ALPHABET_SPACE } from "../../utils/const"
 
 const Props = {
   translate: PropTypes.func.isRequired,
+  reset: PropTypes.func.isRequired,
+  initialValue: PropTypes.string,
 }
 
-export const TranslationForm = ({ translate }) => {
-  const [input, setInput] = useState("")
+export const TranslationForm = ({ translate, reset, initialValue }) => {
+  const [translated, setTranslated] = useState(false)
+  const [input, setInput] = useState(initialValue ?? "")
 
   const onChange = (str) => {
     if (str === "" || REGEX_ALPHABET_SPACE.test(str)) setInput(str)
+
+    if (translated) {
+      setTranslated(false)
+      reset()
+    }
+  }
+
+  const onTranslate = () => {
+    translate(input)
+    setTranslated(true)
   }
 
   return (
@@ -20,7 +33,7 @@ export const TranslationForm = ({ translate }) => {
         value={input}
         onChange={onChange}
         placeholder="What to translate?"
-        onConfirm={() => translate(input)}
+        onConfirm={translated ? null : onTranslate}
       />
     </>
   )

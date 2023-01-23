@@ -10,6 +10,7 @@ const Props = {
 export const TranslationListItem = ({ text, onClick }) => {
   return (
     <div
+      onClick={onClick}
       className="flex p-3 flex-row justify-between cursor-pointer
         items-center border border-light rounded-lg drop-shadow 
         bg-white hover:font-bold hover:border-primary hover:text-primary"

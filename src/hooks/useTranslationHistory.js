@@ -16,7 +16,7 @@ export const useTranslationHistory = () => {
   }
 
   const clear = () => {
-    dispatch(translationClearHistory)
+    dispatch(translationClearHistory())
   }
 
   return { translations, status, fetchHistory, clear }

@@ -9,6 +9,10 @@ export const useNav = () => {
     navigate(PATHS.translate)
   }
 
+  const toHomeWithTranslation = (translation) => {
+    navigate(PATHS.translate, { string: translation })
+  }
+
   const toProfile = () => {
     navigate(PATHS.profile)
   }
@@ -17,5 +21,5 @@ export const useNav = () => {
     return location.pathname === path
   }
 
-  return { toHome, toProfile, isCurrentPath }
+  return { toHome, toProfile, isCurrentPath, toHomeWithTranslation }
 }

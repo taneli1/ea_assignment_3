@@ -5,13 +5,13 @@ import { TranslationForm } from "../components/translation/TranslationForm"
 import { useTranslate } from "../hooks/useTranslate"
 
 export const Translation = () => {
-  const { result, translate } = useTranslate()
+  const { result, translate, reset } = useTranslate()
 
   return (
     <>
       <PageNavBar />
 
-      <TranslationForm translate={translate} />
+      <TranslationForm translate={translate} reset={reset} />
       <TranslationResultCard result={result} />
     </>
   )

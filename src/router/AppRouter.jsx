@@ -45,7 +45,7 @@ export const AppRouter = () => {
 const RouteWrapper = () => {
   return (
     <PageBackground>
-      <Center>
+      <Center className="lg:px-72 md:px-32 px-16 py-24">
         <Outlet />
       </Center>
       <PageFooter />
