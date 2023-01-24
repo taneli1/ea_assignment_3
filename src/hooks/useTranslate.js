@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useDispatch } from "react-redux"
 import { translationSave } from "../state/translation/translationSlice"
 
+// Performs 'translations'.
 export const useTranslate = () => {
   const dispatch = useDispatch()
   const [result, setResult] = useState(null)
