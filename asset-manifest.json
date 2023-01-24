@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/ea_assignment_3/static/css/main.da5e32b7.css",
+    "main.js": "/ea_assignment_3/static/js/main.394d7c25.js",
+    "static/media/logo.png": "/ea_assignment_3/static/media/logo.6aa7feef85b75bcb170d.png",
+    "static/media/w.png": "/ea_assignment_3/static/media/w.f45f68c074177fead3cd.png",
+    "static/media/l.png": "/ea_assignment_3/static/media/l.ee53716f4098f6638e10.png",
+    "static/media/r.png": "/ea_assignment_3/static/media/r.fcc19d70bdbc7b0bfe38.png",
+    "static/media/k.png": "/ea_assignment_3/static/media/k.377ba49823d78c4d5050.png",
+    "static/media/y.png": "/ea_assignment_3/static/media/y.36202253b87983ccb173.png",
+    "static/media/logo_question.png": "/ea_assignment_3/static/media/logo_question.d3ebc8248451eb3d389c.png",
+    "static/media/j.png": "/ea_assignment_3/static/media/j.4b263ca5af0c96204ec3.png",
+    "static/media/x.png": "/ea_assignment_3/static/media/x.1ad7f8b39fd0e296612a.png",
+    "static/media/v.png": "/ea_assignment_3/static/media/v.92496cdb213cb82a3122.png",
+    "static/media/n.png": "/ea_assignment_3/static/media/n.e9dd4d0abadd5f7b977b.png",
+    "static/media/z.png": "/ea_assignment_3/static/media/z.41f7465807c193ed5870.png",
+    "static/media/u.png": "/ea_assignment_3/static/media/u.14fb1fddd515b88627e4.png",
+    "static/media/s.png": "/ea_assignment_3/static/media/s.7783168fc9a641fb4564.png",
+    "static/media/t.png": "/ea_assignment_3/static/media/t.03b74df71635856fd1a6.png",
+    "static/media/c.png": "/ea_assignment_3/static/media/c.574f3eb66aeabcea64de.png",
+    "static/media/a.png": "/ea_assignment_3/static/media/a.8af32afeb68e10cf2bdc.png",
+    "static/media/e.png": "/ea_assignment_3/static/media/e.b7fb3556e83248a40eed.png",
+    "static/media/b.png": "/ea_assignment_3/static/media/b.2c4c45c1b4be3609c115.png",
+    "static/media/lines.svg": "/ea_assignment_3/static/media/lines.9a143af643542b99267e.svg",
+    "index.html": "/ea_assignment_3/index.html",
+    "main.da5e32b7.css.map": "/ea_assignment_3/static/css/main.da5e32b7.css.map",
+    "main.394d7c25.js.map": "/ea_assignment_3/static/js/main.394d7c25.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.da5e32b7.css",
+    "static/js/main.394d7c25.js"
+  ]
+}
