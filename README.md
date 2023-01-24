@@ -1,6 +1,6 @@
 ## Overview 
 
-[Link to app](https://taneli1.github.io/login)
+[Link to app](https://taneli1.github.io/ea_assignment_3/)
 
 Application to perform 'translations' from text to sign language. Saves username + translations to the api. 
 
