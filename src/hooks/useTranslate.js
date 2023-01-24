@@ -15,5 +15,9 @@ export const useTranslate = () => {
     setResult(null)
   }
 
-  return { translate, reset, result }
+  const setInitial = (string) => {
+    setResult(string ?? null)
+  }
+
+  return { translate, reset, setInitial, result }
 }

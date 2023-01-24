@@ -10,7 +10,7 @@ const Props = {
 }
 
 export const TranslationForm = ({ translate, reset, initialValue }) => {
-  const [translated, setTranslated] = useState(false)
+  const [translated, setTranslated] = useState(initialValue ? true : false)
   const [input, setInput] = useState(initialValue ?? "")
 
   const onChange = (str) => {

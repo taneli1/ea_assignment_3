@@ -3,15 +3,28 @@ import { PageNavBar } from "../components/page/PageNavBar"
 import { TranslationResultCard } from "../components/translation/TranslationResultCard"
 import { TranslationForm } from "../components/translation/TranslationForm"
 import { useTranslate } from "../hooks/useTranslate"
+import { useEffect } from "react"
+import { useNav } from "../hooks/useNav"
 
 export const Translation = () => {
-  const { result, translate, reset } = useTranslate()
+  const { state, resetState } = useNav()
+  const { result, translate, reset, setInitial } = useTranslate()
+
+  useEffect(() => {
+    setInitial(state?.initialString)
+    resetState()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <>
       <PageNavBar />
 
-      <TranslationForm translate={translate} reset={reset} />
+      <TranslationForm
+        initialValue={state?.initialString}
+        translate={translate}
+        reset={reset}
+      />
       <TranslationResultCard result={result} />
     </>
   )

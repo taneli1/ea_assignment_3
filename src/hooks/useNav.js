@@ -4,13 +4,16 @@ import { PATHS } from "../router/AppRouter"
 export const useNav = () => {
   const navigate = useNavigate()
   const location = useLocation()
+  const { state } = useLocation()
 
   const toHome = () => {
     navigate(PATHS.translate)
   }
 
-  const toHomeWithTranslation = (translation) => {
-    navigate(PATHS.translate, { string: translation })
+  const toHomeWithInitial = (translation) => {
+    navigate(PATHS.translate, {
+      state: { initialString: translation },
+    })
   }
 
   const toProfile = () => {
@@ -21,5 +24,16 @@ export const useNav = () => {
     return location.pathname === path
   }
 
-  return { toHome, toProfile, isCurrentPath, toHomeWithTranslation }
+  const resetState = () => {
+    navigate(location.pathname, { replace: true })
+  }
+
+  return {
+    state,
+    toHome,
+    toProfile,
+    isCurrentPath,
+    toHomeWithInitial,
+    resetState,
+  }
 }
